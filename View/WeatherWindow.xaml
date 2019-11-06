@@ -1,0 +1,32 @@
+﻿<Window x:Class="WpfWeather.View.WeatherWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfWeather.View"
+        mc:Ignorable="d"
+        Title="WeatherWindow" Height="450" Width="300">
+    <StackPanel Margin="10">
+        <Label>City:</Label>
+        <TextBox></TextBox>
+        <TextBlock Margin="0,20,0,0"
+                   FontSize="20"
+                   FontWeight="Bold">Paris</TextBlock>
+        <TextBlock Margin="0,20,0,0"
+                   FontSize="50"
+                   FontWeight="Bold">21 °C</TextBlock>
+        <TextBlock Margin="0,5,0,0"
+                   FontSize="15"
+                   FontStyle="Italic">Sunny</TextBlock>
+        <TextBlock Margin="0,100,0,0"
+                   FontSize="15"
+                   FontStyle="Italic">UV 7</TextBlock>
+        <TextBlock Margin="0,5,0,0"
+                   FontSize="15"
+                   FontStyle="Italic">Prec 65%</TextBlock>
+        <TextBlock Margin="0,5,0,0"
+                   FontSize="15"
+                   FontStyle="Italic">NE 9kmph</TextBlock>
+
+    </StackPanel>
+</Window>

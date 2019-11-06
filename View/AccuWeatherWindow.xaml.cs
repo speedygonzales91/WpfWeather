@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfWeather
+namespace WpfWeather.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AccuWeatherWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AccuWeatherWindow : Window
     {
-        public MainWindow()
+        public AccuWeatherWindow()
         {
             InitializeComponent();
         }
