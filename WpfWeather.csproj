@@ -59,11 +59,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\City.cs" />
     <Compile Include="ViewModel\AccuWeatherApi.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViewModel\AccuWeatherVM.cs" />
+    <Compile Include="ViewModel\Commands\RefreshCommand.cs" />
     <Compile Include="View\AccuWeatherWindow.xaml.cs">
       <DependentUpon>AccuWeatherWindow.xaml</DependentUpon>
     </Compile>

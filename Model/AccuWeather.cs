@@ -133,9 +133,9 @@ namespace WpfWeather.Model
             }
         }
 
-        private Minimum _maximum;
+        private Maximum _maximum;
 
-        public Minimum Maximum
+        public Maximum Maximum
         {
             get { return _maximum; }
             set
@@ -347,6 +347,38 @@ namespace WpfWeather.Model
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+
+        public AccuWeather()
+        {
+            if (DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
+            {
+                _dailyForecasts = new List<DailyForecast>();
+
+                for (int i = 0; i < 3; i++)
+                {
+                    DailyForecast dailyForecast = new DailyForecast()
+                    {
+                        Date = DateTime.Now.AddDays(-1),
+                        Temperature = new Temperature()
+                        {
+                            Minimum = new Minimum()
+                            {
+                                Value = 2 + i,
+                                Unit = "°C"
+                            }
+                            ,
+                            Maximum = new Maximum()
+                            {
+                                Value = 12 + i,
+                                Unit = "°C"
+                            }
+                        }
+                    };
+                    _dailyForecasts.Add(dailyForecast);
+                }
+            }
+        }
+
         public void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
@@ -355,6 +387,4 @@ namespace WpfWeather.Model
             }
         }
     }
-
-
 }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfWeather.ViewModel;
 
 namespace WpfWeather.View
 {
@@ -22,6 +23,15 @@ namespace WpfWeather.View
         public AccuWeatherWindow()
         {
             InitializeComponent();
+            //GetWeatherAsync();
+
+
+
         }
+
+        //public async void GetWeatherAsync()
+        //{
+        //   //var weather = await AccuWeatherApi.GetWeatherAsync(189895);
+        //}
     }
 }

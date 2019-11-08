@@ -4,26 +4,48 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfWeather.View"
+        xmlns:vm="clr-namespace:WpfWeather.ViewModel"
         mc:Ignorable="d"
         Title="AccuWeatherWindow" Height="450" Width="400">
-    <Grid>
+
+    <Window.Resources>
+        <vm:AccuWeatherVM x:Key="vm"></vm:AccuWeatherVM>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource vm}">
         <StackPanel Margin="10">
+            <Button Content="Refresh"
+                    Command="{Binding Command}"></Button>
             <Label>City:</Label>
-            <TextBox></TextBox>
-            <TextBlock FontSize="30"
+            <TextBox Text="{Binding Query, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <ListView MaxHeight="70"
+                      ItemsSource="{Binding Cities}"
+                      SelectedItem="{Binding SelectedCity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding LocalizedName}"></TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock Text="{Binding LocalizedName}"
+                       FontSize="30"
                        FontWeight="Bold"
-                       Margin="0,20,0,0">Budapest</TextBlock>
-            <ListView>
+                       Margin="0,20,0,0"></TextBlock>
+            <ListView ItemsSource="{Binding Weather.DailyForecasts}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="10">
-                            <TextBlock FontSize="20"
-                                       FontWeight="Bold">Date</TextBlock>
+                            <TextBlock Text="{Binding Date, StringFormat=m}"
+                                       FontSize="20"
+                                       FontWeight="Bold"></TextBlock>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock FontSize="20"
-                                       FontWeight="Bold">Minimum</TextBlock>
-                                <TextBlock FontSize="20"
-                                       FontWeight="Bold">Maximum</TextBlock>
+                                <TextBlock  Text="{Binding Temperature.Minimum.Value}" 
+                                            Margin="10,0,10,0"
+                                            FontSize="20"
+                                            FontWeight="Bold"></TextBlock>
+                                <TextBlock  Text="{Binding Temperature.Maximum.Value}"
+                                            Margin="10,0,10,0"
+                                            FontSize="20"
+                                            FontWeight="Bold"></TextBlock>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
